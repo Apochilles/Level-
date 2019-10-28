@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  developer: MyString
+  publisher: MyString
+  system_req: MyString
+  release_date: MyString
+  average_rating: 1
+
+two:
+  developer: MyString
+  publisher: MyString
+  system_req: MyString
+  release_date: MyString
+  average_rating: 1
