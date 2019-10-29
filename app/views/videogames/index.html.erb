@@ -1,0 +1,12 @@
+<h1>LEVEL</h1>
+
+<% @videogames.each do |videogame| %>
+  <div>
+      <%= videogame.name %>
+      <%= videogame.developer %>
+      <%= videogame.system_req %>
+      <%= videogame.release_date %>
+      <%= videogame.average_rating%>
+     
+
+<% end %>  

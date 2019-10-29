@@ -1,0 +1,21 @@
+<%= form_with(model: @videogame, local: true) do |form| %>
+  <div
+      <%= form.label :developer %>
+      <%= form.text_field :developer %>
+  </div>
+  <div>
+      <%= form.label :system_req %>
+      <%= form.text_area :system_req %>
+  </div>
+  <div>
+      <%= form.label :release_date %>
+      <%= form.number_field :release_date, min: 0 %>
+  </div>
+  <div>
+      <%= form.label :average_rating %>
+      <%= form.number_field :average_rating, min: 0 %>
+  </div>
+  <div>
+      <%= form.submit %>
+  </div>
+<% end %>

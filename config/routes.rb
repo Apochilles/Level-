@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # devise_for :users
-  # get "/", to: "home#index", as: "root"
+  get "/", to: "videogames#index", as: "root"
   
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post "/videogames", to: "videogames#create"
+  get "/videogames/new", to: "videogames#new", as: "new_videogame"
+
 end

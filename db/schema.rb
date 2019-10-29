@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_225955) do
+ActiveRecord::Schema.define(version: 2019_10_29_004519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2019_10_28_225955) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "profile_videogames", force: :cascade do |t|
+    t.bigint "videogame_id", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_profile_videogames_on_profile_id"
+    t.index ["videogame_id"], name: "index_profile_videogames_on_videogame_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -34,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_10_28_225955) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +62,18 @@ ActiveRecord::Schema.define(version: 2019_10_28_225955) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.bigint "genre_id", null: false
+    t.bigint "developer_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["developer_id"], name: "index_videogames_on_developer_id"
+    t.index ["genre_id"], name: "index_videogames_on_genre_id"
+    t.index ["user_id"], name: "index_videogames_on_user_id"
   end
 
+  add_foreign_key "profile_videogames", "profiles"
+  add_foreign_key "profile_videogames", "videogames"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "videogames", "developers"
+  add_foreign_key "videogames", "genres"
+  add_foreign_key "videogames", "users"
 end
