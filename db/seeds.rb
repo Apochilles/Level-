@@ -41,7 +41,7 @@ for i in 1..3
     puts "Created #{i} genres"
 end
 
-for i in 1..45
+for i in 1..3
   videogame = Videogame.new(
    name: Faker::Game.title ,
    developer_id: Developer.find(rand(1..3)).id,
@@ -49,7 +49,7 @@ for i in 1..45
    release_date: Faker::Date.between_except(from: 30.year.ago, to: 1.year.from_now,  excepted: Date.today) ,
    average_rating: Faker::Number.number(digits: 5) ,
    genre_id: Genre.find(rand(1..3)).id,
-   user_id: User.find(rand(1..3)).id 
+   profile_id: Profile.find(rand(1..3)).id 
 )  
   videogame.save
   puts "Created #{i} videogames- #{videogame.id}"
