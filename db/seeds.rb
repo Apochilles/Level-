@@ -41,7 +41,7 @@ for i in 1..3
     puts "Created #{i} genres"
 end
 
-for i in 1..3
+for i in 1..45
   videogame = Videogame.new(
    name: Faker::Game.title ,
    developer_id: Developer.find(rand(1..3)).id,

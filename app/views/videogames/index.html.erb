@@ -1,5 +1,7 @@
 <h1>LEVEL</h1>
 
+
+
 <% @videogames.each do |videogame| %>
   <div>
       <%= videogame.name %>
@@ -9,4 +11,8 @@
       <%= videogame.average_rating%>
      
 
+      <%= link_to "Show", videogame_path( videogame ) %>
+
+
 <% end %>  
+
