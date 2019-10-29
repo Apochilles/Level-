@@ -50,10 +50,16 @@ for i in 1..3
    average_rating: Faker::Number.number(digits: 5) ,
    genre_id: Genre.find(rand(1..3)).id,
    profile_id: Profile.find(rand(1..3)).id 
-)  
-  videogame.save
-  puts "Created #{i} videogames- #{videogame.id}"
+
+)   
+videogame.save
+byebug
+  puts "Created #{i} videogames #{videogame.id}"
+
+
 end 
 
 puts "Seeding complete"
+
+
 
