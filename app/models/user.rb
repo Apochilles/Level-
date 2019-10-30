@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_one :profile
-         has_many :videogames, through: :profile_videogames 
 
 end

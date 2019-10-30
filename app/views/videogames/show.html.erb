@@ -3,10 +3,6 @@
 <%= @videogames.name %> 
 </p>
 
-<p>
-<strong>developer:</strong> 
-<%= @videogames.developer %>
-</p>
 
 <p>
 <strong>system req:</strong>
@@ -24,6 +20,18 @@
 <strong>average rating:</strong>
 <%= @videogames.average_rating %> 
 </p>
+
+
+<p>
+<strong>developer:</strong>
+<%= @videogames.developer.developer_name %> 
+</p>
+
+<p>
+<strong>genre:</strong>
+<%= @videogames.genre.genre_description%> 
+</p>
+
 
 
 <%= link_to "Back", videogames_path %>

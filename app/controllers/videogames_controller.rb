@@ -6,7 +6,9 @@ class VideogamesController < ApplicationController
   end
 
   def show
-  end
+#   id = params[ :id]
+#   @Videogame = current_user.videogames.find_by_id(id)
+end
 
   def new
     @videogame = Videogame.new
@@ -29,8 +31,23 @@ class VideogamesController < ApplicationController
 
   private
 
-  def set_listing
-      id = params[:id]
-      @videogames= Videogame.find(id)
+  def videogame_params  
+  params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id )  
   end
+    
+  def set_listing
+    id = params[:id]
+      @videogames= Videogame.find(id)
+   
+    end
+def set_user_listing
+    id = params[:id]
+    @videogame = current_user.videogames.find_by_id(id)
+
+    if @videogame == nil
+        redirect to videogames_path
+    end
+ end
+
+
 end

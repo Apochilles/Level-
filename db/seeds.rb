@@ -42,7 +42,7 @@ for i in 1..3
 end
 
 for i in 1..3
-  videogame = Videogame.new(
+  Videogame.create!(
    name: Faker::Game.title ,
    developer_id: Developer.find(rand(1..3)).id,
    system_req: Faker::Device.manufacturer ,
@@ -50,16 +50,13 @@ for i in 1..3
    average_rating: Faker::Number.number(digits: 5) ,
    genre_id: Genre.find(rand(1..3)).id,
    profile_id: Profile.find(rand(1..3)).id 
+  )
 
-)   
-videogame.save
-byebug
-  puts "Created #{i} videogames #{videogame.id}"
 
 
 end 
 
-puts "Seeding complete"
+  puts "Seeding complete"
 
 
 

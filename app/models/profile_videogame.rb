@@ -1,6 +1,5 @@
 class ProfileVideogame < ApplicationRecord
-  belongs_to :videogame
-  belongs_to :profile
-  has_many :profile
+  belongs_to :profiles
+  has_many :profiles
   has_many :videogames
 end
