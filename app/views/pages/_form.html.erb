@@ -1,9 +1,36 @@
 <%= form_with(model: @profile, local: true) do |form| %>
  
+  <% if @profile.errors.any? %>
+  <div id="error_explanation">
+      <ul>
+          <% listing.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+      </ul>
+  </div>
+  <% end %>
 
+  <div>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</div>
+<div>
+  <%= form.label :address %>
+  <%= form.text_area :address %>
+</div>
+<div>
+  <%= form.label :phone_number %>
+  <%= form.number_field :phone_number, min: 0 %>
+</div>
+<div>
+  <%= form.label :email %>
+  <%= form.text_field :email, min: 0 %>
+</div>
+<div>
   </div>
 
   <div>
       <%= form.submit %>
   </div>
 <% end %>
+

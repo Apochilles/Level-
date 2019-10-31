@@ -14,9 +14,18 @@ end
     @videogame = Videogame.new
   end
 
-  def create
- # puts params #
- end
+def create
+    videogame_params = params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id) 
+
+  @videogames = Videogame.new ( videogame_params )
+  @videogames = current_user.listings.create( listing_params )
+  if @videogames.save 
+    redirect_to @home
+  else
+    render :new
+  end
+end
+ 
 
   def edit
   end

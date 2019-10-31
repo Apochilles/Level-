@@ -9,11 +9,14 @@ class PagesController < ApplicationController
   def show
   end 
 
+  def new
+    @videogame = LVideogame.new
+   
+
+  end
+
   def create
     listing_params = params.require(:profiles).permit(:name, :address, :phone_number, :email )
-
-
-    puts params
 
   @profiles = Profile.new ( profile_params )
   @profiles = current_user.listings.create( listing_params )
@@ -24,6 +27,16 @@ class PagesController < ApplicationController
   end
 end
 
+def update 
+  listing_params = params.require(:profile).permit(:name, :address, :phone_number, :email )
+  id = params[:id]
+    @profiles = Profile.find(id)
+    if @profiles.update(profile_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+end
 
 
   def not_found
@@ -31,21 +44,25 @@ end
   end
 
 
-private
+  private
 
- def profile_params  
-  params.require(:profile).permit(:name, :address, :phone_number, :email )  
- end
-    
+  def profile_params  
+   params.require(:profile).permit(:name, :address, :phone_number, :email )  
+  end
+ 
+      
   def set_listing
     id = params[:id]
-      @profiles= Profile.find(id)
-  end
+      
+    @profiles= Profile.find(id)
 
-  def set_user_listing
-    id = params[:id]
-    @profile = current_user.profiles.find_by_id(id)
-
-  end
-
-end
+    end
+ 
+   def set_user_listing
+     id = params[:id]
+     @profile = current_user.profile
+ 
+   end
+ 
+ end
+ 
