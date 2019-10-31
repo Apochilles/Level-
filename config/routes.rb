@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post "/videogames", to: "videogames#create"
   get "/videogames/new", to: "videogames#new", as: "new_videogame"
   get "/videogames/:id", to: "videogames#show", as: "videogame"
+  get "/profiles/:id", to: "pages#show", as: "profile"
 end

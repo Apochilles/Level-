@@ -1,19 +1,5 @@
 <h1>LEVEL</h1>
 
-<% @videogames.each do |videogame| %>
-  <div>
-      <%= videogame.name %>
-      <%= videogame.system_req %>
-      <%= videogame.release_date %>
-      <%= videogame.average_rating %>
-      <%= videogame.developer.developer_name %>
-      <%= videogame.genre.genre_description %>
-
-      <%= link_to "Show", videogame_path( videogame ) %>
-
-</div>
-<% end %>  
-
 
 <table style="width:100%">
 <tr>
@@ -24,14 +10,19 @@
   <th>Developer </th>
   <th>Genre</th>
 </tr>
-<tr>
-  <td>Jill</td>
-  <td>Smith</td>
-  <td>50</td>
-</tr>
-<tr>
-  <td>Eve</td>
-  <td>Jackson</td>
-  <td>94</td>
-</tr>
-</table> 
+<% @videogames.each do |videogame| %>
+  <div>
+  <td><%= videogame.name %></td>
+  <td><%= videogame.system_req %></td>
+  <td><%= videogame.release_date %></td>
+  <td><%= videogame.average_rating %></td>
+  <td><%= videogame.developer.developer_name %></td>
+  <td><%= videogame.genre.genre_description %></td>
+  <td><%= link_to "Show", videogame_path( videogame ) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>
+

@@ -15,8 +15,8 @@ end
   end
 
   def create
-      #finish logic for creating a record
-  end
+ # puts params #
+ end
 
   def edit
   end
@@ -32,7 +32,7 @@ end
   private
 
   def videogame_params  
-  params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id )  
+  params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id)  
   end
     
   def set_listing
