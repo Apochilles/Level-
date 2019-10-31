@@ -8,7 +8,7 @@
 require 'faker'
 
 
-for i in 1..3
+for i in 1..25
   user = User.create!(
      
     email: Faker::Internet.email ,
@@ -26,7 +26,7 @@ for i in 1..3
   puts "Created #{i} profiles: profile #{profile.id}"
 end 
 
-for i in 1..3
+for i in 1..25
   Developer.create!(
     developer_name: Faker::Company.name
   ) 
@@ -34,14 +34,14 @@ for i in 1..3
 end
 
 
-for i in 1..3
+for i in 1..25
   Genre.create!(
     genre_description: Faker::Game.genre 
   ) 
     puts "Created #{i} genres"
 end
 
-for i in 1..3
+for i in 1..200
   Videogame.create!(
    name: Faker::Game.title ,
    developer_id: Developer.find(rand(1..3)).id,
