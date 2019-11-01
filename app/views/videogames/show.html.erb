@@ -1,48 +1,45 @@
 <p>
 <strong>name:</strong>
-<%= @videogames.name %> 
+<%= @videogame.name %> 
 </p>
 
 <p>
 <strong>description:</strong>
-<%= @videogames.description %> 
+<%= @videogame.description %> 
 </p>
 
 
 <p>
 <strong>system req:</strong>
-<%= @videogames.system_req %> 
+<%= @videogame.system_req %> 
 </p>
 
 
 <p>
 <strong>release date:</strong>
-<%= @videogames.release_date %> 
+<%= @videogame.release_date %> 
 </p>
 
 
 <p>
 <strong>average rating:</strong>
-<%= @videogames.average_rating %> 
+<%= @videogame.average_rating %> 
 </p>
 
 
 <p>
 <strong>developer:</strong>
-<%= @videogames.developer.developer_name %> 
+<%= @videogame.developer.developer_name %> 
 </p>
 
 <p>
 <strong>genre:</strong>
-<%= @videogames.genre.genre_description%> 
+<%= @videogame.genre.genre_description%> 
 </p>
 
-<p>
-<strong>owner:</strong>
-<%= @videogames.profile.name%>
-</p>
 
-<button type="button">Install me!</button> 
+<button type="button"><%= link_to "Install Me", install_videogame_path %>
+</button> 
 
 
 <%= link_to "Back", videogames_path %>

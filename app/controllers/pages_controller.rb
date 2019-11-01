@@ -10,9 +10,6 @@ class PagesController < ApplicationController
   end 
 
   def new
-    @videogame = LVideogame.new
-   
-
   end
 
   def create

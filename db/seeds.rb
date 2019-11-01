@@ -8,7 +8,7 @@
 require 'faker'
 
 
-for i in 1..25
+for i in 1..2
   user = User.create!(
      
     email: Faker::Internet.email ,
@@ -26,7 +26,7 @@ for i in 1..25
   puts "Created #{i} profiles: profile #{profile.id}"
 end 
 
-for i in 1..25
+for i in 1..2
   Developer.create!(
     developer_name: Faker::Company.name
   ) 
@@ -34,14 +34,14 @@ for i in 1..25
 end
 
 
-for i in 1..25
+for i in 1..2
   Genre.create!(
     genre_description: Faker::Game.genre 
   ) 
     puts "Created #{i} genres"
 end
 
-for i in 1..200
+for i in 1..2
   Videogame.create!(
    name: Faker::Game.title ,
    description: Faker::Quote.matz,
@@ -50,8 +50,6 @@ for i in 1..200
    release_date: Faker::Date.between_except(from: 30.year.ago, to: 1.year.from_now,  excepted: Date.today) ,
    average_rating: Faker::Number.number(digits: 5) ,
    genre_id: Genre.find(rand(1..3)).id,
-   profile_id: Profile.find(rand(1..3)).id 
-  #  profile_id:[]
   )
 
 

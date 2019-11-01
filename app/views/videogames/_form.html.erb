@@ -1,25 +1,43 @@
 <%= form_with(model: @videogame, local: true) do |form| %>
-  <div
-      <%= form.label :developer %>
-      <%= form.text_field :developer %>
+ 
+    <% if @videogame.errors.any? %>
+    <div id="error_explanation">
+        <ul>
+            <% listing.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+    <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
-  <div>
-      <%= form.label :system_req %>
-      <%= form.text_area :system_req %>
-  </div>
-  <div>
-      <%= form.label :release_date %>
-      <%= form.number_field :release_date, min: 0 %>
-  </div>
-  <div>
-      <%= form.label :average_rating %>
-      <%= form.number_field :average_rating, min: 0 %>
-  </div>
-#   <div>
-#   <%= form.label :genre %>
-#   <%= form.text_field :videogame.genre.genre_description, min: 0 %>
-# </div>
-  <div>
-      <%= form.submit %>
-  </div>
-<% end %>
+<div>
+    <%= form.label :system_req %>
+    <%= form.text_field :system_req %>
+</div>
+<div>
+    <%= form.label :release_date %>
+    <%= form.date_field :release_date, min: 0 %>
+</div>
+<div>
+    <%= form.label :average_rating %>
+    <%= form.number_field :average_rating, min: 0 %>
+</div>
+<div>
+    <%= form.label :genre_id %>
+    <%= form.select :genre_id, Genre.all.map { |g| [g.genre_description, g.id] }, :prompt => "Select Genre" %>
+</div>
+<div>
+    <%= form.label :developer_id %>
+   
+    <%= form.select :developer_id, Developer.all.map{ |d| [d.developer_name, d.id] }, :prompt => "Select Developer" %>
+</div>
+  
+    <div>
+        <%= form.submit %>
+    </div>
+  <% end %>
+  
+  

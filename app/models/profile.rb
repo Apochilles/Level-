@@ -3,6 +3,7 @@ class Profile < ApplicationRecord
   validates_associated :user
   has_many :profile_videogames
   has_many :videogames, through: :profile_videogames
+
   
 
   def completed_profile?

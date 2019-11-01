@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_221758) do
+ActiveRecord::Schema.define(version: 2019_11_01_001116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,11 +68,9 @@ ActiveRecord::Schema.define(version: 2019_10_31_221758) do
     t.string "name"
     t.bigint "genre_id", null: false
     t.bigint "developer_id", null: false
-    t.bigint "profile_id", null: false
     t.text "description"
     t.index ["developer_id"], name: "index_videogames_on_developer_id"
     t.index ["genre_id"], name: "index_videogames_on_genre_id"
-    t.index ["profile_id"], name: "index_videogames_on_profile_id"
   end
 
   add_foreign_key "profile_videogames", "profiles"
@@ -80,5 +78,4 @@ ActiveRecord::Schema.define(version: 2019_10_31_221758) do
   add_foreign_key "profiles", "users"
   add_foreign_key "videogames", "developers"
   add_foreign_key "videogames", "genres"
-  add_foreign_key "videogames", "profiles"
 end
