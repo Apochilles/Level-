@@ -3,28 +3,34 @@
 <td><%= link_to "Home", root_path %></td>
 <td><%= link_to "Add game", videogames_path %></td>
 
-<table style="width:100%">
-<tr>
-  <th>Name</th>
-  <th>System Requirements</th>
-  <th>Release Date </th>
-  <th>Average rating</th>
-  <th>Developer </th>
-  <th>Genre</th>
-</tr>
+<h2>Level</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>System Requirements</th>
+    <th>Release Date</th>
+    <th>Average rating</th>
+    <th>Developer</th>
+    <th>Genre</th>
+    <th>Play</th>
+  </tr>
+  </tr>
 <% @videogames.each do |videogame| %>
-  <div>
+ 
   <td><%= videogame.name %></td>
   <td><%= videogame.system_req %></td>
   <td><%= videogame.release_date %></td>
   <td><%= videogame.average_rating %></td>
   <td><%= videogame.developer.developer_name %></td>
   <td><%= videogame.genre.genre_description %></td>
-  <td><%= link_to "Show", videogame_path( videogame ) %></td>
+  <td><%= link_to "Play", videogame_path( videogame ) %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
   <br>
-</div>
+</table>
 
+</body>
+</html>

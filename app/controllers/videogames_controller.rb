@@ -16,12 +16,11 @@ end
   end
 
 def create
-byebug
   @videogame = Videogame.new ( videogame_params )
  
   @profile = current_user.profile
   if @videogame.save 
-    ProfileVideogame.create(videogame_id: @videogame.id, profile_id: @profile.id)
+    ProfileVideogame.create(videogame_id: @videogame.id, profile_id: @profile.id, role: "uploader")
 
 
     
@@ -40,7 +39,7 @@ end
   def install
     @profile = current_user.profile
     @videogame = Videogame.find_by_id(params[:id]) 
-    @profile_videogame = ProfileVideogame.create(videogame_id: @videogame.id, profile_id: @profile.id)
+    @profile_videogame = ProfileVideogame.create(videogame_id: @videogame.id, profile_id: @profile.id, role: "downloader")
 
     if @profile_videogame.save 
 
@@ -78,4 +77,3 @@ end
    end
  
  end
- 

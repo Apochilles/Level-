@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end 
 
   def new
+    @profiles = current_user.build_profile
   end
 
   def create
