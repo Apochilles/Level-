@@ -15,7 +15,7 @@ end
   end
 
 def create
-    videogame_params = params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id) 
+    videogame_params = params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id, :description) 
 
   @videogames = Videogame.new ( videogame_params )
   @videogames = current_user.listings.create( listing_params )
@@ -41,7 +41,7 @@ end
   private
 
   def videogame_params  
-  params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id)  
+  params.require(:videogame).permit(:name, :release_date, :average_rating, :profile_id, :genre_id, :developer_id, :description )  
   end
     
   def set_listing

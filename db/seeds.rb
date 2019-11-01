@@ -44,6 +44,7 @@ end
 for i in 1..200
   Videogame.create!(
    name: Faker::Game.title ,
+   description: Faker::Quote.matz,
    developer_id: Developer.find(rand(1..3)).id,
    system_req: Faker::Device.manufacturer ,
    release_date: Faker::Date.between_except(from: 30.year.ago, to: 1.year.from_now,  excepted: Date.today) ,
