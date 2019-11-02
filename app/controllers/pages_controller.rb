@@ -10,13 +10,13 @@ class PagesController < ApplicationController
   end 
 
   def new
-    @profiles = current_user.build_profile
+    @profiles = current_user
   end
 
   def create
     listing_params = params.require(:profiles).permit(:name, :address, :phone_number, :email )
 
-  @profiles = Profile.new ( profile_params )
+  @profiles = Profile.find ( id)
   @profiles = current_user.listings.create( listing_params )
   if @profiles.save 
     redirect_to @home

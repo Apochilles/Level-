@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   get "/", to: "pages#home", as: "root"
+  get "/profiles/:id/new", to: "pages#new", as: "new_listing"
+
   
   
   get "/videogames", to: "videogames#index", as: "videogames"
