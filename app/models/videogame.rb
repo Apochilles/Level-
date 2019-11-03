@@ -6,7 +6,7 @@ class Videogame < ApplicationRecord
   belongs_to :developer 
  
 
-  validates :name, format: {}
+  validates :name, presence: true
   validates :release_date, presence: true
   validates :average_rating, presence: true
   validates :genre_id, presence: true
