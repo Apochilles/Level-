@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    listing_params = params.require(:profiles).permit(:name, :address, :phone_number, :email )
+    listing_params = params.require(:profiles).permit(:name, :address, :phone_number, :email, :picture )
 
   @profiles = Profile.find ( id)
   @profiles = current_user.listings.create( listing_params )
@@ -26,7 +26,7 @@ class PagesController < ApplicationController
 end
 
 def update 
-  listing_params = params.require(:profile).permit(:name, :address, :phone_number, :email )
+  listing_params = params.require(:profile).permit(:name, :address, :phone_number, :email, :picture)
   id = params[:id]
     @profiles = Profile.find(id)
     if @profiles.update(profile_params)
@@ -45,7 +45,7 @@ end
   private
 
   def profile_params  
-   params.require(:profile).permit(:name, :address, :phone_number, :email )  
+   params.require(:profile).permit(:name, :address, :phone_number, :email, :picture )  
   end
  
       
