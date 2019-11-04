@@ -10,19 +10,17 @@ class PagesController < ApplicationController
   end 
 
   def new
-    @profiles = current_user
+    @profiles = Profile.new
   end
 
   def create
-    listing_params = params.require(:profiles).permit(:name, :address, :phone_number, :email, :picture )
-
-  @profiles = Profile.find ( id)
-  @profiles = current_user.listings.create( listing_params )
-  if @profiles.save 
-    redirect_to @home
-  else
-    render :new
-  end
+ 
+  
+      @profiles = Profile.new(profile_params)
+      @profiles.user_id = current_user.id
+      @profiles.save
+      redirect_to root_path
+ 
 end
 
 def update 
@@ -44,6 +42,7 @@ end
 
   private
 
+
   def profile_params  
    params.require(:profile).permit(:name, :address, :phone_number, :email, :picture )  
   end
@@ -60,7 +59,11 @@ end
      id = params[:id]
      @profile = current_user.profile
  
-   end
+     if @profile == nil
+      redirect_to root_path
+      end
+   
+    end
  
  end
  

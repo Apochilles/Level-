@@ -49,7 +49,15 @@ end
 
 
   def update
-      #finsih logic for updating the record
+    videogame_params = params.require(:videogame).permit(:name, :release_date, :average_rating, :genre_id, :developer_id, :description, :system_req) 
+    id = params[:id]
+      @videogame  = Videogame.find(id)
+      if @videogame.update(videogame_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
+  
   end
 
   def destroy
@@ -66,7 +74,7 @@ end
   def set_listing
     id = params[:id]
       
-    @profiles= Profile.find(id)
+    @videogame = Videogame.find(id)
 
     end
  

@@ -1,4 +1,4 @@
-<%= form_with(model: @profile, local: true) do |form| %>
+<%= form_with(model: @profiles, url: profiles_path ,local: true) do |form| %>
  
   <% if @profiles.errors.any? %>
   <div id="error_explanation">

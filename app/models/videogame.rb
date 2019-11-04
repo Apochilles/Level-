@@ -7,7 +7,7 @@ class Videogame < ApplicationRecord
  
   validates :name, format: { with: /\A[a-zA-Z]+\z/,message: "only allows letters" }
   
-  validates :release_date, format: { with: /\d{2}\/\d{2}\/\d{4}/, message: "Date must be in the following format: dd/mm/yyyy" }
+  # validates :release_date, format: { with: /\d{2}\/\d{2}\/\d{4}/, message: "Date must be in the following format: dd/mm/yyyy" }
 
   validates :average_rating, inclusion:  {:in => [1,5], message: "Score must between: 1-5" }
   

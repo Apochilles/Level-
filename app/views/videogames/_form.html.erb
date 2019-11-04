@@ -19,7 +19,7 @@
 </div>
 <div>
     <%= form.label :release_date %>
-    <%= form.date_field :release_date, min: 0 %>
+    <%= form.number_field :release_date, min: 0 %>
 </div>
 <div>
     <%= form.label :average_rating %>
@@ -33,6 +33,10 @@
     <%= form.label :developer_id %>
    
     <%= form.select :developer_id, Developer.all.map{ |d| [d.developer_name, d.id] }, :prompt => "Select Developer" %>
+</div>
+<div>
+    <%= form.label :description %>
+    <%= form.text_field :description, min: 0 %>
 </div>
   
     <div>

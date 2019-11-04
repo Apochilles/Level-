@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/videogames", to: "videogames#index", as: "videogames"
   post "/videogames", to: "videogames#create" 
   get "/videogames/new", to: "videogames#new", as: "new_videogame"
+  get "/videogames/:id/edit", to: "videogames#edit", as: "edit_videogame"
   get "/videogames/:id", to: "videogames#show", as: "videogame"
 
 
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   
   get "/profiles/:id", to: "pages#show", as: "profile"
   get "/profiles/:id/new", to: "pages#new", as: "new_listing"
+  post "/profiles", to: "pages#create" 
   get "/profiles/:id/edit", to: "pages#edit", as: "edit_listing"
   put "/profiles/:id", to: "pages#update"
   patch "/profiles/:id", to: "pages#update"
