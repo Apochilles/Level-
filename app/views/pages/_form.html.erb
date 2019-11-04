@@ -1,6 +1,6 @@
 <%= form_with(model: @profile, local: true) do |form| %>
  
-  <% if @profile.errors.any? %>
+  <% if @profiles.errors.any? %>
   <div id="error_explanation">
       <ul>
           <% listing.errors.full_messages.each do |msg| %>

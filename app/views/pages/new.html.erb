@@ -1,23 +1,6 @@
 <h1>New Profile</h1>
 
-<p>
-<strong>name:</strong>
-<%= @profiles.name %> 
-</p>
-
-<p>
-<strong>address:</strong>
-<%= @profiles.address %> 
-</p>
-
-
-<p>
-<strong>phone number:</strong>
-<%= @profiles.phone_number %> 
-</p>
-
-<%= image_tag @profiles.picture if @profiles.picture.attached? %>
+<%= render 'form', listing: @profiles %>
 
 
 <td><%= link_to "Home", root_path %></td>
-<%= link_to "Edit", edit_listing_path(current_user.profile) %>
