@@ -16,7 +16,7 @@
 <%= @profiles.phone_number %> 
 </p>
 
-<%= image_tag @profiles.picture if @profiles.picture.attached? %>
+<%= image_tag @profiles.picture.service_url if @profiles.picture.attached? %>
 
 
 <td><%= link_to "Home", root_path %></td>

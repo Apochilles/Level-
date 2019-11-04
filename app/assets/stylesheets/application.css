@@ -151,7 +151,7 @@
   .background-image-index {
     height: 100vh;
     width: 100vw;
-  background-image: url("/assets/the-outer-worlds-private-division-obsidian-entertainment.jpg");
+  background-image: url("https://level-c929c8.s3-ap-southeast-2.amazonaws.com/the-outer-worlds-private-division-obsidian-entertainment.jpg");
    }
 
    .button {
