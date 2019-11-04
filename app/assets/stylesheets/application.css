@@ -39,7 +39,7 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        background-image: url("/assets/wp4374286-bloodstained-ritual-of-the-night-wallpapers.jpg");
+        background: image-url("/assets/wp4374286-bloodstained-ritual-of-the-night-wallpapers.jpg");
         
         }
      
