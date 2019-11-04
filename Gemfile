@@ -58,3 +58,6 @@ gem "devise", "~> 4.7"
 gem  "faker", "~> 2.6"
 gem "aws-sdk-s3", "~> 1.53"
 gem 'cancancan'
+gem 'countries'
+
+gem "stripe", "~> 5.7"
