@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   put "/profiles/:id", to: "pages#update"
   patch "/profiles/:id", to: "pages#update"
 
+  
+
+
   get "*path", to: "pages#not_found"
 end
 

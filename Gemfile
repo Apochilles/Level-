@@ -61,3 +61,4 @@ gem 'cancancan'
 gem 'countries'
 
 gem "stripe", "~> 5.7"
+gem 'mailgun-ruby', '~>1.1.6'

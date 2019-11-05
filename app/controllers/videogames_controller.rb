@@ -40,9 +40,14 @@ end
     @profile = current_user.profile
     @videogame = Videogame.find_by_id(params[:id]) 
     @profile_videogame = ProfileVideogame.create(videogame_id: @videogame.id, profile_id: @profile.id, role: "downloader")
+  
+    # require 'mailgun-ruby'
 
     if @profile_videogame.save 
-
+      ModelMailer.videogame_install_notification(@profile).deliver
+      # respond_to do |format|
+      # format.html {redirect_to videogame_path}
+      # end
       redirect_to videogame_path
     end
   end
