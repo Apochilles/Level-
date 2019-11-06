@@ -1,7 +1,8 @@
 <h1>LEVEL</h1>
 <strong><%=current_user.email%></strong>
-<td><%= link_to "Home", root_path %></td>
 <td><%= link_to "Add game", new_videogame_path(@videogame) %></td>
+<%= link_to "View Profile", profile_path(current_user)%>  
+
 
 <h2>Level</h2>
 
@@ -14,6 +15,7 @@
     <th>Developer</th>
     <th>Genre</th>
     <th>Play</th>
+    <th>Delete</th>
   </tr>
   </tr>
 <% @videogames.each do |videogame| %>
@@ -25,6 +27,7 @@
   <td><%= videogame.developer.developer_name %></td>
   <td><%= videogame.genre.genre_description %></td>
   <td><%= link_to "Play", videogame_path( videogame ) %></td>
+  <td><%= link_to "Destroy", videogame_path( current_user.profile ), method: :delete, data: { confirm: 'Are you really sure?' } if current_user.profile.id ==  current_user.profile.videogames %></td>
       </tr>
       <% end %>
     </tbody>

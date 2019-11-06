@@ -2,8 +2,11 @@ class VideogamesController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-      @videogames = Videogame.all
+      @videogames = Videogame.all.order("name")
   end
+  def index_system_req
+    @videogames = Videogame.all.order("name")
+end
 
   def show
   id = params[ :id]
@@ -24,7 +27,7 @@ def create
 
 
     
-    redirect_to root_path
+    redirect_to videogames_path
 
 
   else
@@ -36,6 +39,13 @@ end
   def edit
   end
 
+  def destroy
+    Videogame.find(params[:id]).destroy
+    
+    redirect_to videogames_path
+  end
+    
+
   def install
     @profile = current_user.profile
     @videogame = Videogame.find_by_id(params[:id]) 
@@ -43,13 +53,13 @@ end
   
     # require 'mailgun-ruby'
 
-    if @profile_videogame.save 
-      ModelMailer.videogame_install_notification(@profile).deliver
-      # respond_to do |format|
-      # format.html {redirect_to videogame_path}
-      # end
+    # if @profile_videogame.save 
+    #   ModelMailer.videogame_install_notification(@profile).deliver
+    #   # respond_to do |format|
+    #   # format.html {redirect_to videogame_path}
+    #   # end
       redirect_to videogame_path
-    end
+    # end
   end
 
 
@@ -65,9 +75,9 @@ end
   
   end
 
-  def destroy
-      #finish logic for deleting the record
-  end
+  # def destroy
+  #     #finish logic for deleting the record
+  # end
 
   private
 

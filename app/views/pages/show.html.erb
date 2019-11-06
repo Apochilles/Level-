@@ -2,22 +2,23 @@
 
 <p>
 <strong>name:</strong>
-<%= @profiles.name %> 
+<%= @profile.name %> 
 </p>
 
 <p>
 <strong>address:</strong>
-<%= @profiles.country %> 
+<%= @profile.country %> 
 </p>
 
 
 <p>
 <strong>phone number:</strong>
-<%= @profiles.phone_number %> 
+<%= @profile.phone_number %> 
 </p>
 
-<%= image_tag @profiles.picture.service_url if @profiles.picture.attached? %>
+<%= image_tag @profile.picture.service_url if @profile.picture.attached?  %>
 
-
-<td><%= link_to "Home", root_path %></td>
+   
+<td><%= link_to "index", videogames_path %></td>
 <%= link_to "Edit", edit_listing_path(current_user.profile) %>
+<td><%= link_to "Destroy", destroy_listing_path( current_user.profile ), method: :destroy, data: { confirm: 'Are you really sure?' } %></td>

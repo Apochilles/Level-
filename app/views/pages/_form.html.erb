@@ -1,9 +1,9 @@
-<%= form_with(model: @profiles, url: profiles_path ,local: true) do |form| %>
+<%= form_with(model: @profile, url: profiles_path ,local: true) do |form| %>
  
-  <% if @profiles.errors.any? %>
+  <% if @profile.errors.any? %>
   <div id="error_explanation">
       <ul>
-          <% listing.errors.full_messages.each do |msg| %>
+          <% @profile.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
           <% end %>
       </ul>
