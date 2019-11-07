@@ -1,7 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_many :profile_videogames
-  has_many :videogames
   has_many :videogames, through: :profile_videogames
   has_one_attached :picture
 
@@ -11,6 +10,5 @@ class Profile < ApplicationRecord
   # validates :phone_number, presence: true ,format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" }
 
 
-accepts_nested_attributes_for :user
 
 end

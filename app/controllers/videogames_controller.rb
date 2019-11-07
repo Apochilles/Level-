@@ -64,11 +64,11 @@ end
 
 
   def update
-    videogame_params = params.require(:videogame).permit(:name, :release_date, :average_rating, :genre_id, :developer_id, :description, :system_req) 
+    videogame_params = params.require(:videogame).permit(:name, :release_date, :average_rating, :genre_id, :developer_id, :description, :system_req, :picture) 
     id = params[:id]
       @videogame  = Videogame.find(id)
       if @videogame.update(videogame_params)
-        redirect_to root_path
+        redirect_to videogames_path
       else
         render :edit
       end
@@ -82,7 +82,7 @@ end
   private
 
   def videogame_params  
-  params.require(:videogame).permit(:name, :release_date, :average_rating, :genre_id, :developer_id, :description, :system_req) 
+  params.require(:videogame).permit(:name, :release_date, :average_rating, :genre_id, :developer_id, :description, :system_req, :picture) 
   end
     
      

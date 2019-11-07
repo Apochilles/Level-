@@ -1,6 +1,5 @@
 class Videogame < ApplicationRecord
   has_many :profile_videogames, dependent: :nullify 
-  has_many :profiles
   has_many :profiles, through: :profile_videogames
   belongs_to :genre
   belongs_to :developer

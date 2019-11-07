@@ -62,3 +62,4 @@ gem 'countries'
 
 gem "stripe", "~> 5.7"
 gem 'mailgun-ruby', '~>1.1.6'
+gem 'coffee-script-source', '1.8.0'  

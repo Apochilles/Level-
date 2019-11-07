@@ -14,8 +14,12 @@
     <th>Average rating</th>
     <th>Developer</th>
     <th>Genre</th>
+    <th>Image</th>
     <th>Play</th>
+    <th>Edit</th>
     <th>Delete</th>
+    
+    
   </tr>
   </tr>
 <% @videogames.each do |videogame| %>
@@ -26,8 +30,17 @@
   <td><%= videogame.average_rating %></td>
   <td><%= videogame.developer.developer_name %></td>
   <td><%= videogame.genre.genre_description %></td>
+  <td><%= image_tag videogame.picture.service_url, :class => "style_image" if videogame.picture.attached?  %></td>
   <td><%= link_to "Play", videogame_path( videogame ) %></td>
-  <td><%= link_to "Destroy", videogame_path( current_user.profile ), method: :delete, data: { confirm: 'Are you really sure?' } if current_user.profile.id ==  current_user.profile.videogames %></td>
+  <% videogame.profile_videogames.each do |p| %>
+    <% if p.profile_id == current_user.profile.id %>
+      <% if p.role == "uploader" %>
+       <td><%= link_to "Edit", edit_videogame_path( videogame ) %></td>
+       <td><%= link_to "Destroy", videogame_path( videogame ), method: :delete, data: { confirm: 'Are you really sure?' } %></td>
+       <% end %>
+      <% end %>
+  <% end %>
+
       </tr>
       <% end %>
     </tbody>

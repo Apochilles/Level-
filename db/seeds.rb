@@ -49,7 +49,7 @@ spec = ["Low", "Medium", "High"]
 number = [1,2,3,4,5]
 
   
-  for i in 1..200
+  for i in 1..50
     Videogame.create!(
      name: Faker::Game.title ,
      developer_id: Developer.find(rand(1..50)).id,
@@ -62,11 +62,13 @@ number = [1,2,3,4,5]
      
   end
 
-  for i in 1..200  
-     ProfileVideogame.create!(
-       videogame_id: Videogame.find(rand(1..200)).id, 
+    status = ["uploader", "dowloader"]
+
+  for i in 1..50 
+     ProfileVideogame.find_or_create_by!(
+       videogame_id: Videogame.find(rand(1..50)).id, 
        profile_id: Profile.find(rand(1..50)).id ,
-       role: "uploader" ,
+       role: status.sample ,
        )
 
      

@@ -40,8 +40,9 @@
 <%= image_tag @videogame.picture.service_url if @videogame.picture.attached?  %>
 
 
+
 <button type="button"><%= link_to "Install Me", install_videogame_path %>
 </button> 
 
-<%= link_to "Edit", edit_videogame_path(current_user.profile) %>
 <%= link_to "Back", videogames_path %>
+

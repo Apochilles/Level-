@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 class User::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET my/users/sign_up
-  # def new
-  #   super
-  # end
-
-#  def create
-#   if resource.save
-#     resource.create_profile
-#   end
-# end
+  def new
+    super do
+    @user.profile = Profile.new
+    end
+  end
+ 
+ def create
+  super
+  
+end
   
   # POST /resource
   # def create
@@ -47,18 +48,18 @@ class User::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [profile_attributes: [:name, :country, :phone_number ]])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [profile_attributes: [:name, :country, :phone_number ]])
+  end
 
 # The path used after sign up.
 def after_sign_up_path_for(resource)
-  new_listing_path(current_user)
+  videogames_path
 end
 
   # The path used after sign up for inactive accounts.

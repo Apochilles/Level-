@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
 #  validates :email, uniqueness: true
- has_one :profile, dependent: :destroy
-
+has_one :profile, dependent: :destroy
+ accepts_nested_attributes_for :profile
 
 
 

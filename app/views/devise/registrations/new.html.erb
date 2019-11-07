@@ -29,6 +29,26 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
+    <%= f.fields_for :profile do |profile_form| %>
+      
+      <div class="field">
+      <%= profile_form.label :name %></h2>
+      <p><%= profile_form.text_field :name %></p>
+      </div>
+     
+      <div class="field">
+      <%= profile_form.label :country %></h2>
+      <p><%= profile_form.text_field :country %></p>
+      </div>
+      
+      <div class="field">
+      <%= profile_form.label :phone_number %></h2>
+      <p><%= profile_form.number_field :phone_number %></p>
+      </div>
+  
+    
+      <% end %>
+
     <div class="actions">
     <%= f.submit "Sign up" %>
     </div>

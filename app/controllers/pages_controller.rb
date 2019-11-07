@@ -7,10 +7,13 @@ class PagesController < ApplicationController
   end
 
   def show
+    if current_user.profile != Profile.find(params[:id])
+      redirect_to root_path
+    end
   end 
 
   def new
-    @profile = Profile.new
+     @profile = current_user.Profile.new(profile_params)
   end
 
   def create
@@ -58,6 +61,7 @@ end
     id = params[:id]
       
     @profile = Profile.find(id)
+
 
     end
  
