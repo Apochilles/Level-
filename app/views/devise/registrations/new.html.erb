@@ -1,8 +1,8 @@
+<body>
 <td><%= link_to "Back", root_path %></td>
 
 
 <div class="container">
-
   <div class="signup">
 
       <h2>Sign up</h2>
@@ -32,21 +32,20 @@
     <%= f.fields_for :profile do |profile_form| %>
       
       <div class="field">
-      <%= profile_form.label :name %></h2>
-      <p><%= profile_form.text_field :name %></p>
+      <%= profile_form.label :name %><br />
+     <%= profile_form.text_field :name %>
       </div>
      
       <div class="field">
-      <%= profile_form.label :country %></h2>
-      <p><%= profile_form.text_field :country %></p>
+      <%= profile_form.label :country %><br />
+      <%= profile_form.text_field :country %>
       </div>
       
       <div class="field">
-      <%= profile_form.label :phone_number %></h2>
-      <p><%= profile_form.number_field :phone_number %></p>
+      <%= profile_form.label :phone_number %><br />
+      <%= profile_form.number_field :phone_number %>
       </div>
-  
-    
+
       <% end %>
 
     <div class="actions">
@@ -90,6 +89,6 @@
 
   </div>
 </div>
-
+<body>
 
 

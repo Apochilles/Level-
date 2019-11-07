@@ -1,48 +1,35 @@
-<p>
+<div class="card">
+<%= image_tag @videogame.picture.service_url, :class => "style_image" if @videogame.picture.attached?  %>
 <strong>name:</strong>
 <%= @videogame.name %> 
 </p>
-
 <p>
 <strong>description:</strong>
 <%= @videogame.description %> 
 </p>
-
-
 <p>
 <strong>system req:</strong>
 <%= @videogame.system_req %> 
 </p>
-
-
 <p>
 <strong>release date:</strong>
 <%= @videogame.release_date %> 
 </p>
-
-
 <p>
 <strong>average rating:</strong>
 <%= @videogame.average_rating %> 
 </p>
-
-
 <p>
 <strong>developer:</strong>
 <%= @videogame.developer.developer_name %> 
-</p>
-
-<p>
+</p><p>
 <strong>genre:</strong>
 <%= @videogame.genre.genre_description%> 
 </p>
-
-<%= image_tag @videogame.picture.service_url if @videogame.picture.attached?  %>
-
-
 
 <button type="button"><%= link_to "Install Me", install_videogame_path %>
 </button> 
 
 <%= link_to "Back", videogames_path %>
+</div>
 

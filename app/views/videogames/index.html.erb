@@ -1,10 +1,14 @@
+
+
+<body>
+<div class="container.index">
 <h1>LEVEL</h1>
 <strong><%=current_user.email%></strong>
 <td><%= link_to "Add game", new_videogame_path(@videogame) %></td>
 <%= link_to "View Profile", profile_path(current_user)%>  
 
 
-<h2>Level</h2>
+<h2>Game List</h2>
 
 <table>
   <tr>
@@ -16,8 +20,7 @@
     <th>Genre</th>
     <th>Image</th>
     <th>Play</th>
-    <th>Edit</th>
-    <th>Delete</th>
+  
     
     
   </tr>
@@ -50,3 +53,4 @@
 
 </body>
 </html>
+</div>

@@ -1,23 +1,27 @@
-<h1>New Profile</h1>
+<div class="container.profile">
 
-<p>
-<strong>name:</strong>
+
+<div class="card">
+<%= image_tag @profile.picture.service_url, :class => "style_image" if @profile.picture.attached?  %>
+<h1><strong>name:</strong>
+<%= @profile.name %> </h1>
+<p><strong>name:</strong>
 <%= @profile.name %> 
 </p>
-
 <p>
 <strong>address:</strong>
 <%= @profile.country %> 
 </p>
-
-
 <p>
 <strong>phone number:</strong>
 <%= @profile.phone_number %> 
 </p>
-
-<%= image_tag @profile.picture.service_url if @profile.picture.attached?  %>
-
-   
-<td><%= link_to "index", videogames_path %></td>
+<p>
+<strong>email address:</strong>
+<%= @profile.email %> 
+</p>
+<td><%= link_to "Index", videogames_path %></td>
 <%= link_to "Edit", edit_listing_path(current_user.profile) %>
+</div>
+</div>
+
