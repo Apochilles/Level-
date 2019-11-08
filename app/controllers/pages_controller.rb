@@ -55,7 +55,7 @@ end
 
 
   def profile_params  
-   params.require(:profile).permit(:name, :country, :phone_number, :email, :picture )  
+   params.require(:profile).permit(:name, :country, :phone_number, :picture )  
   end
  
       

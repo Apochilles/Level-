@@ -18,7 +18,7 @@ class Videogame < ApplicationRecord
   validates :genre_id, presence: true
   validates :developer_id, presence: true
   validates :description, presence: true, length: { minimum: 20, maximum: 300 , message: "must be between: 20 and 500 characters" }
-  validates :system_req, inclusion:  {:in => %w(Low Medium High), message: "Can only be Low, Medium or High" }
+  validates :system_req, presence: true, inclusion:  {:in => %w(Low Medium High), message: "Can only be Low, Medium or High" }
 
   accepts_nested_attributes_for :profile_videogames
 

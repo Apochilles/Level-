@@ -9,7 +9,7 @@
 <%= @profile.name %> 
 </p>
 <p>
-<strong>address:</strong>
+<strong>country:</strong>
 <%= @profile.country %> 
 </p>
 <p>
@@ -18,7 +18,7 @@
 </p>
 <p>
 <strong>email address:</strong>
-<%= @profile.email %> 
+<%= @current_user.email %> 
 </p>
 <td><%= link_to "Index", videogames_path %></td>
 <%= link_to "Edit", edit_listing_path(current_user.profile) %>
