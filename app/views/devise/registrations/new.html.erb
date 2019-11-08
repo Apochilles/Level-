@@ -35,10 +35,11 @@
      <%= profile_form.text_field :name %>
       </div>
      
-      <div class="field">
-      <%= profile_form.label :country %><br />
-      <%= profile_form.text_field :country %>
-      </div>
+      <div>
+      <%= profile_form.label :country %>
+      <%= profile_form.select(:country, [ ['Australia'], ['U.K'], ['U.S.A'], ['China'], ['Japan'],['Melbourne'], ['Germany'], ['Other'] ].sort )%>
+  </div>
+
       
       <div class="field">
       <%= profile_form.label :phone_number %><br />

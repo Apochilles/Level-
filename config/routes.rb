@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   sessions: 'user/sessions',
   registrations: "user/registrations"
 }
-  get "/", to: "pages#home", as: "root"
-
+ get "/", to: "pages#subscription", as: "root"
   
   get "/videogames", to: "videogames#index", as: "videogames"
   post "/videogames", to: "videogames#create" 
