@@ -1,16 +1,17 @@
-
-
 <body>
 <div class="container.index">
 <h1>LEVEL</h1>
 <strong><%=current_user.email%></strong>
-<td><%= link_to "Add game", new_videogame_path(@videogame) %></td>
-<%= link_to "View Profile", profile_path(current_user)%>  
+<button class="button"><%=  link_to "Add game", new_videogame_path(@videogame) %></button> 
+<button class="button"><%= link_to "View Profile", profile_path(current_user)%></button> 
+
 
 
 <h2>Game List</h2>
 
 <table>
+  
+<% @videogames.each do |videogame| %>
   <tr>
     <th>Name</th>
     <th>System Requirements</th>
@@ -20,13 +21,13 @@
     <th>Genre</th>
     <th>Image</th>
     <th>Play</th>
-  
     
-    
+     
+    <th></th>
+    <th></th>
   </tr>
   </tr>
-<% @videogames.each do |videogame| %>
- 
+
   <td><%= videogame.name %></td>
   <td><%= videogame.system_req %></td>
   <td><%= videogame.release_date %></td>
@@ -38,7 +39,7 @@
   <% videogame.profile_videogames.each do |p| %>
     <% if p.profile_id == current_user.profile.id %>
       <% if p.role == "uploader" %>
-       <td><%= link_to "Edit", edit_videogame_path( videogame ) %></td>
+      <td><%= link_to "Edit", edit_videogame_path( videogame ) %></td>
        <td><%= link_to "Destroy", videogame_path( videogame ), method: :delete, data: { confirm: 'Are you really sure?' } %></td>
        <% end %>
       <% end %>

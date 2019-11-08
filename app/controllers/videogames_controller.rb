@@ -1,23 +1,25 @@
 class VideogamesController < ApplicationController
+ #This method calls on set_listing in my private section of my controller. This method will be called before :show, :edit, :update, :destroy actions
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
+#This method when called an instance variable that contains all my Videogame instances and sorts them by name 
   def index
       @videogames = Videogame.all.order("name")
   end
-  def index_system_req
-    @videogames = Videogame.all.order("name")
-end
 
+  #This method assigns a Videogame a Videogame_Id and provides connects it with the current user.profile to determine what privileges the user will have in the show page 
   def show
   id = params[ :id]
   @videogame = Videogame.find(id)
   @profile = current_user.profile
 end
 
+  #Calling new instances a new Videogame object and stores it in a videogame instance variable 
   def new
     @videogame = Videogame.new
   end
 
+  
 def create
   @videogame = Videogame.new ( videogame_params )
  
