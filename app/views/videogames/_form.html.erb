@@ -15,7 +15,7 @@
   </div>
 <div>
     <%= form.label :system_req %>
-    <%= form.text_field :system_req %>
+    <%= form.select(:system_req, [ ['Low'], ['Medium'], ['High'] ].sort )%>
 </div>
 <div>
     <%= form.label :release_date %>

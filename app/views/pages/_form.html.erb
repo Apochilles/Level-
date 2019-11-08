@@ -16,7 +16,7 @@
 </div>
 <div>
   <%= form.label :country %>
-  <%= form.text_field :country %>
+  <%= form.select(:country, [ ['Australia'], ['UK'], ['USA'], ['China'], ['Japan'],['Melbourne'], ['Germany'], ['Other'] ].sort )%>
 </div>
 <div>
   <%= form.label :phone_number %>

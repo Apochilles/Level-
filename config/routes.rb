@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, :path_prefix => 'my', controllers: {
+  devise_for :users, controllers: { 
+
+  
   sessions: 'user/sessions',
   registrations: "user/registrations"
+ 
 }
- get "/", to: "pages#subscription", as: "root"
+get "/", to: "pages#subscription", as: "root"
   
   get "/videogames", to: "videogames#index", as: "videogames"
   post "/videogames", to: "videogames#create" 

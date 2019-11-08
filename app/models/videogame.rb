@@ -7,7 +7,7 @@ class Videogame < ApplicationRecord
   belongs_to :developer
   has_one_attached :picture
 
-  validates :name, presence: true, length: { minimum: 1, maximum: 15 , message: "must be between: 1 and 15 characters" }
+  validates :name, presence: true, length: { minimum: 1, maximum: 40 , message: "must be between: 1 and 40 characters" }
   validates :average_rating, presence: true, inclusion:  {:in => (1..5), message: "must be between: 1-5" }
   validates :release_date, presence: true
   validate :release_date_cannot_be_in_the_future 

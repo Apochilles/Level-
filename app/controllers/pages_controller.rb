@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   
   def home
     @user=current_user.email
-    flash[:subscribing] = "Thank you for subscribing!" 
   end
 
   def show
