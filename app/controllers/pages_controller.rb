@@ -3,15 +3,22 @@ class PagesController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :set_user_listing, only: [:edit, :update, :destroy]
   
+  #The devise gem restricts my users to create, update, and delete methods via the application_controller to only users that are signed in.
+  
   def home
     @user=current_user.email
   end
+
+
 
   def show
     if current_user.profile != Profile.find(params[:id])
       redirect_to root_path
     end
   end 
+
+  #This method evaluates whether the current_user.profile matches the profile they are viewing. If not, it redirects them.
+  
 
   def new
      @profile = current_user.Profile.new(profile_params)
@@ -27,6 +34,10 @@ class PagesController < ApplicationController
       end
   end
 
+  #My new and create method creates a profile with my current user foreign keys, linking them together 
+  
+
+
 def update 
   listing_params = params.require(:profile).permit(:name, :country, :phone_number, :email, :picture)
   id = params[:id]
@@ -37,6 +48,8 @@ def update
       render :edit
     end
 end
+
+
 
 def destroy
   Profile.find(params[:id]).destroy

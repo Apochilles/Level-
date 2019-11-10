@@ -1,5 +1,4 @@
 class VideogamesController < ApplicationController
- #This method calls on set_listing in my private section of my controller. This method will be called before :show, :edit, :update, :destroy actions
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 #This method when called an instance variable that contains all my Videogame instances and sorts them by name 
@@ -53,15 +52,8 @@ end
     @videogame = Videogame.find_by_id(params[:id]) 
     @profile_videogame = ProfileVideogame.create(videogame_id: @videogame.id, profile_id: @profile.id, role: "downloader")
   
-    # require 'mailgun-ruby'
-
-    # if @profile_videogame.save 
-    #   ModelMailer.videogame_install_notification(@profile).deliver
-    #   # respond_to do |format|
-    #   # format.html {redirect_to videogame_path}
-    #   # end
+   
       redirect_to videogame_path
-    # end
   end
 
 
@@ -77,9 +69,6 @@ end
   
   end
 
-  # def destroy
-  #     #finish logic for deleting the record
-  # end
 
   private
 

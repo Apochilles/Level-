@@ -23,7 +23,7 @@
 </div>
 <div>
     <%= form.label :average_rating %>
-    <%= form.number_field :average_rating, min: 0 %>
+    <%= form.select(:average_rating, [ (1),(2),(3),(4),(5) ] .sort )%>
 </div>
 <div>
     <%= form.label :genre_id %>

@@ -123,6 +123,8 @@
     background-color: #dddddd;
       } 
 
+
+
   .signuplogin {
     display: flex;
     justify-content: flex-end;
@@ -208,9 +210,18 @@
   }
 
   .style_image {
-   height: 100px;
-   width: 100px;
+   height: 63%;
+   width: 63%;  
+  padding: 25px;
+  margin: 0px 15px 15px 0px;
+  float: center;
   }
+
+
+  .style_image_index {
+    height: 100px;
+    width: 100px;
+   }
 
   .background-image-index {
     height: 100vh;
