@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-   #The devise gem restricts my users to create, update, and delete methods via the application_controller to only users that are signed in.
+#The devise gem only authorizes logged in users to use crud functionality in my app
   before_action :authenticate_user!
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :set_user_listing, only: [:edit, :update, :destroy]
