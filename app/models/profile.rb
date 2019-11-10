@@ -11,6 +11,3 @@ class Profile < ApplicationRecord
 
 end
 
-
-# validates :country,
-# :presence => { :in => 'country.nil?' }
