@@ -37,7 +37,10 @@
   <td><%= image_tag videogame.picture.service_url, :class => "style_image_index" if videogame.picture.attached?  %></td>
   <td><%= link_to "Play", videogame_path( videogame ) %></td>
   
-  #this is my verification of my current_user.profile privileges. Through the do loop I evaluate first whether the current_user.profile has a an entry in the join table. Secondly I evaluate whether they are an uploader of the video game. If they are, they are allowed delete and edit privileges.
+
+ 
+  <%-#   this is my verification of my current_user.profile privileges. Through the do loop I evaluate first whether the current_user.profile has a an entry in the join table. Secondly I evaluate whether they are an uploader of the video game. If they are, they are allowed delete and edit privileges. -%>
+    
   
   <% videogame.profile_videogames.each do |p| %>
     <% if p.profile_id == current_user.profile.id %>

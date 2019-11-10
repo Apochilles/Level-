@@ -47,6 +47,8 @@ end
 
   # protected
 
+  #These methods allow me to nest my profile fields in my user form 
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [profile_attributes: [:name, :country, :phone_number ]])
@@ -57,7 +59,9 @@ end
     devise_parameter_sanitizer.permit(:account_update, keys: [profile_attributes: [:name, :country, :phone_number ]])
   end
 
-# The path used after sign up.
+
+
+# This method routes a new user to an alternate path 
 def after_sign_up_path_for(resource)
   root_path
 end

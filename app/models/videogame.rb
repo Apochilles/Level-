@@ -22,6 +22,7 @@ class Videogame < ApplicationRecord
 
   accepts_nested_attributes_for :profile_videogames
 
+  #Sets a default scope of name ascending which I use to sort my videogame index page
   default_scope { order("name ASC") }
 
  
